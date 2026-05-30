@@ -1096,7 +1096,7 @@ function submitOrder(){
   btn.disabled=true;btn.textContent='⏳ กำลังส่งข้อมูล...';
   var code='D1-'+Date.now().toString().slice(-6);
   var payload={orderCode:code,product:'Nano D1 Glass Cleaner',option:curOpt.value,price:curOpt.price+' THB',name:name,phone:phone,address:addr,note:note,ts:new Date().toISOString()};
-  fbq('track','Purchase',{content_ids:['NANO-D1-GLASS-CLEANER'],value:curOpt.price,currency:'THB'});
+  fbq('track','CompleteRegistration',{content_ids:['NANO-D1-GLASS-CLEANER'],value:curOpt.price,currency:'THB',status:'completed'});
   fetch('https://script.google.com/macros/s/AKfycbyCJM2hMonXuchAODh8CFS3c53mJEuCrJA8AKVJvtNdbGqhsKVWCzF5q71xcMPrktTdpg/exec',{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain'},body:JSON.stringify(payload)}).catch(function(){});
   setTimeout(function(){
     document.getElementById('popupForm').style.display='none';
