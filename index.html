@@ -7,7 +7,7 @@
   LANDING PAGE — น้ำยาขัดกระจก Nano D1
   ------------------------------------------------------------
   ก่อน DEPLOY ให้แทน placeholder:
-    1. PLACEHOLDER_WEBHOOK_D1_THAI → Google Apps Script URL
+    ✅ Webhook đã kết nối: sheet 12eeuSzFDtsZNovgFRyXddYhqe574HKSXTIKryAl3nR4
   ============================================================
 -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -1097,7 +1097,7 @@ function submitOrder(){
   var code='D1-'+Date.now().toString().slice(-6);
   var payload={orderCode:code,product:'Nano D1 Glass Cleaner',option:curOpt.value,price:curOpt.price+' THB',name:name,phone:phone,address:addr,note:note,ts:new Date().toISOString()};
   fbq('track','Purchase',{content_ids:['NANO-D1-GLASS-CLEANER'],value:curOpt.price,currency:'THB'});
-  fetch('PLACEHOLDER_WEBHOOK_D1_THAI',{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain'},body:JSON.stringify(payload)}).catch(function(){});
+  fetch('https://script.google.com/macros/s/AKfycbyCJM2hMonXuchAODh8CFS3c53mJEuCrJA8AKVJvtNdbGqhsKVWCzF5q71xcMPrktTdpg/exec',{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain'},body:JSON.stringify(payload)}).catch(function(){});
   setTimeout(function(){
     document.getElementById('popupForm').style.display='none';
     document.getElementById('popupFoot').style.display='none';
